@@ -243,6 +243,20 @@ const SHOP_DATA = {
         price: 25
       }
     ]
+  },
+
+  handmade: {
+    id: 5,
+    title: 'Handmade',
+    routeName: 'handmade',
+    items: [
+      {
+        id: 9,
+        name: 'Camo Down Vest',
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/crwn-db-23683.appspot.com/o/dreamCatcher.jpg?alt=media&token=2bf7979b-6d41-4137-9e8c-4bae2bead41c',
+        price: 99
+      }
+    ]
   }
 };
 
