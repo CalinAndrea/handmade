@@ -26,11 +26,11 @@ const INITIAL_STATE = {
       linkUrl: 'shop/womens'
     },
     {
-      title: 'mens',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+      title: 'handmade',
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/crwn-db-23683.appspot.com/o/Handmade.jpg?alt=media&token=3e952433-a370-469d-b806-6a71d885fc0f',
       size: 'large',
       id: 5,
-      linkUrl: 'shop/mens'
+      linkUrl: 'shop/handmade'
     }
   ]
 };
