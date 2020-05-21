@@ -12,7 +12,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         collections: action.payload,
       };
     default:
-      return state; 
+      return state;
   }
 };
 
