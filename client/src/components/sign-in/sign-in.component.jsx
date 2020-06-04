@@ -27,8 +27,8 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
 
   return (
     <div className='sign-in'>
-      <h2>I already have an account</h2>
-      <span>Sign in with your email and password</span>
+      <h2>Am deja cont!</h2>
+      <span>Conectare cu email și parolă</span>
 
       <form onSubmit={handleSubmit}>
         <FormInput
@@ -48,9 +48,9 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
           required
         />
         <div className='buttons'>
-          <CustomButton type='submit'> Sign in </CustomButton>
+          <CustomButton type='submit'> Conectare </CustomButton>
           <CustomButton type='button' onClick={googleSignInStart} isGoogleSignIn>
-            Sign in with Google
+            Conectare cu Google
             </CustomButton>
         </div>
       </form>

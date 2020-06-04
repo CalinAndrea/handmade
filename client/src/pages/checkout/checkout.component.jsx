@@ -22,27 +22,27 @@ const CheckoutPage = ({ cartItems, total }) => (
   <CheckoutPageContainer>
     <CheckoutHeaderContainer>
       <HeaderBlockContainer>
-        <span>Product</span>
+        <span>Produs</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>Description</span>
+        <span>Descriere</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>Quantity</span>
+        <span>Cantitate</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>Price</span>
+        <span>Preț</span>
       </HeaderBlockContainer>
       <HeaderBlockContainer>
-        <span>Remove</span>
+        <span>Șterge</span>
       </HeaderBlockContainer>
     </CheckoutHeaderContainer>
     {cartItems.map(cartItem => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
-    <TotalContainer>TOTAL: ${total}</TotalContainer>
+    <TotalContainer>Preț total: {total} RON</TotalContainer>
     <WarningContainer>
-      *Please use the following test credit card for payments*
+      *Folosește următorul card de credit pentru testare*
       <br />
       4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
     </WarningContainer>

@@ -21,7 +21,7 @@ const SignUp = ({ signUpStart }) => {
 
 
     if (password !== confirmPassword) {
-      alert("passwords don't match");
+      alert("Parolele nu coincid!");
       return;
     }
 
@@ -37,15 +37,15 @@ const SignUp = ({ signUpStart }) => {
 
   return (
     <div className='sign-up'>
-      <h2 className='title'>I do not have a account</h2>
-      <span>Sign up with your email and password</span>
+      <h2 className='title'>Nu dețin cont</h2>
+      <span>Inregistrare cu email și parolă</span>
       <form className='sign-up-form' onSubmit={handleSubmit}>
         <FormInput
           type='text'
           name='displayName'
           value={displayName}
           onChange={handleChange}
-          label='Display Name'
+          label='Nume complet'
           required
         />
         <FormInput
@@ -61,7 +61,7 @@ const SignUp = ({ signUpStart }) => {
           name='password'
           value={password}
           onChange={handleChange}
-          label='Password'
+          label='Parolă'
           required
         />
         <FormInput
@@ -69,10 +69,10 @@ const SignUp = ({ signUpStart }) => {
           name='confirmPassword'
           value={confirmPassword}
           onChange={handleChange}
-          label='Confirm Password'
+          label='Confirmă parolă'
           required
         />
-        <CustomButton type='submit'>SIGN UP</CustomButton>
+        <CustomButton type='submit'>Inregistrează-te</CustomButton>
       </form>
     </div>
   );

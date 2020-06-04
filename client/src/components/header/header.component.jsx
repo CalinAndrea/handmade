@@ -18,18 +18,18 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
     </LogoContainer>
     <OptionsContainer>
       <OptionLink to='/shop'>
-        SHOP
+        Magazin
       </OptionLink>
       <OptionLink to='/shop'>
-        CONTACT
+        Scrie-ne
       </OptionLink>
       {currentUser ? (
         <OptionLink as='div' onClick={signOutStart}>
-          SIGN OUT
+          Ieși din cont
         </OptionLink>
       ) : (
           <OptionLink to='/signin'>
-            SIGN IN
+            Conectează-te
           </OptionLink>
         )}
       <CartIcon />
