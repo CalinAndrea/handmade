@@ -39,11 +39,11 @@ class ItemDetail extends React.Component {
                         <DescriptionContainer>{item.description}</DescriptionContainer>
                     </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div>
                         <span>Preț: {item.price} ron</span>
                     </div>
-                </div>
+                </div> */}
                 <div className="row">
                     <div>
                         <AddButton onClick={() => this.props.addItem(item)} inverted>

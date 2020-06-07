@@ -48,6 +48,7 @@ height: 10%;
 weight: 50%;
 text-align: right;
 float: left;
+display: flex;
 `;
 
 export const DescriptionContainer = styled.span`
