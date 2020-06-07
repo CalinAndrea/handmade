@@ -45,23 +45,23 @@ weight: 10%;
 
 export const PriceContainer = styled.span`
 height: 10%;
-  text-align: right;
+weight: 50%;
+text-align: right;
+float: left;
 `;
 
 export const DescriptionContainer = styled.span`
   weight: 50%;
-  height: 70%;
+  height: 50%;
   float: left;
-  overflow-wrap: break-word;
-  display: flex;
 `;
 
 export const AddButton = styled(CustomButton)`
   float: left;
   width: 10%;
-  height: 10%;
   opacity: 0.7;
   @media screen and (max-width: 800px) {
+    width: 40%;
     display: block;
     opacity: 0.9;
     min-width: unset;

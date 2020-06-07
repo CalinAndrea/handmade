@@ -2,6 +2,15 @@
   width: 20%;
   margin: auto;
   float: left;
+
+  @media screen and (max-width: 800px) {
+    width: 40%;
+    height: 85%;
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 }
 
 .each-slide > div {

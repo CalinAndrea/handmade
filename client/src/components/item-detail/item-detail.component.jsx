@@ -41,6 +41,11 @@ class ItemDetail extends React.Component {
                 </div>
                 <div className="row">
                     <div>
+                        <span>Preț: {item.price} ron</span>
+                    </div>
+                </div>
+                <div className="row">
+                    <div>
                         <AddButton onClick={() => this.props.addItem(item)} inverted>
                             Adaugă în coș
                         </AddButton>
