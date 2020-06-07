@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { addItem } from '../../redux/cart/cart.actions';
+import { withRouter } from 'react-router-dom';
+
 
 import {
   CollectionItemContainer,
@@ -12,11 +14,14 @@ import {
   PriceContainer
 } from './collection-item.styles';
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItem, history }) => {
   const { name, price, imageUrl } = item;
 
   return (
-    <CollectionItemContainer>
+    <CollectionItemContainer onClick={() => history.push({
+      pathname: `/detail/${item.id}`,
+      state: {item: item}
+    })}>
       <BackgroundImage className='image' imageUrl={imageUrl} />
       <CollectionFooterContainer>
         <NameContainer>{name}</NameContainer>
@@ -33,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
   addItem: item => dispatch(addItem(item))
 });
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(CollectionItem);
+)(CollectionItem));

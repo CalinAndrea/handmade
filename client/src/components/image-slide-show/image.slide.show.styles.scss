@@ -1,0 +1,30 @@
+.slide-container {
+  width: 20%;
+  margin: auto;
+  float: left;
+}
+
+.each-slide > div {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  background-size: cover;
+  height: 250px;
+}
+
+.each-fade {
+  display: flex;
+}
+
+.each-fade .image-container {
+  width: 80%;
+  overflow: hidden;
+}
+
+.background-detail-image {
+  width: 20%;
+  height: 95%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 5px;
+}

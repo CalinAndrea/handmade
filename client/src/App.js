@@ -13,6 +13,7 @@ import { selectCurrentUser } from "./redux/user/user.selectors";
 
 import { checkUserSession } from "./redux/user/user.actions";
 
+const ItemPage = lazy(() => import('./pages/item-page/item.component'));
 const HomePage = lazy(() => import("./pages/homepage/homepage.component"));
 const ShopPage = lazy(() => import("./pages/shop/shop.component"));
 const SignInAndSignUpPage = lazy(() =>
@@ -42,6 +43,7 @@ const App = ({ checkUserSession, currentUser }) => {
                 currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
               }
             />
+            <Route path="/detail" component={ItemPage} />
           </Suspense>
         </ErrorBoundary>
       </Switch>
