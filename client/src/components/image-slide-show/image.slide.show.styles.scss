@@ -5,7 +5,7 @@
 
   @media screen and (max-width: 800px) {
     width: 40%;
-    height: 50%;
+    height: 20%;
     display: block;
     opacity: 0.9;
     min-width: unset;
@@ -19,6 +19,15 @@
   // justify-content: center;
   background-size: cover;
   height: 250px;
+
+  @media screen and (max-width: 800px) {
+    width: 40%;
+    height: 20%;
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 }
 
 .each-fade {
@@ -28,6 +37,15 @@
 .each-fade .image-container {
   width: 80%;
   overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    width: 40%;
+    height: 20%;
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 }
 
 .background-detail-image {
