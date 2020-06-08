@@ -1,10 +1,10 @@
 .slide-container {
-  width: 20%;
+  width: 70%;
   margin: auto;
   float: left;
 
   @media screen and (max-width: 800px) {
-    width: 40%;
+    width: 70%;
     height: 20%;
     display: block;
     opacity: 0.9;
@@ -14,9 +14,9 @@
 }
 
 .each-slide > div {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-size: cover;
   height: 250px;
 
@@ -35,7 +35,7 @@
 }
 
 .each-fade .image-container {
-  width: 80%;
+  width: 100%;
   overflow: hidden;
 
   @media screen and (max-width: 800px) {
@@ -49,23 +49,9 @@
 }
 
 .background-detail-image {
-  width: 20%;
+  width: 40%;
   height: 95%;
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
-}
-
-.slideshow-image {
-  width: 80%;
-  height: auto;
-  overflow: hidden;
-
-  @media screen and (max-width: 800px) {
-    width: auto;
-    height: 10%;
-    opacity: 0.9;
-    min-width: unset;
-    padding: 0 10px;
-  }
 }
