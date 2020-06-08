@@ -23,8 +23,8 @@ class ItemDetail extends React.Component {
                 <div className="row">
                     <div>
                         {item.additionalImages &&
-                            <div>
-                                <Slideshow images={item.additionalImages ? images.concat(item.imageUrl).concat(item.additionalImages) : images.concat(item.imageUrl)}></Slideshow>
+                            <div className='slideshow-image'>
+                                <Slideshow className='slideshow-image' images={item.additionalImages ? images.concat(item.imageUrl).concat(item.additionalImages) : images.concat(item.imageUrl)}></Slideshow>
                             </div>
                         }
                         {!item.additionalImages &&
