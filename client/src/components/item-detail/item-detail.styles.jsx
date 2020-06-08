@@ -118,6 +118,16 @@ export const BackgroundImage = styled(Slideshow)`
   width: 40%;
   height: 95%;
   margin-bottom: 5px;
+  position: absolute;
+
+  @media screen and (max-width: 800px) {
+    height: 100px;
+    width: 60%;
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 `;
 
 export const CollectionFooterContainer = styled.div`

@@ -32,6 +32,15 @@
 
 .each-fade {
   display: flex;
+
+  @media screen and (max-width: 800px) {
+    width: 40%;
+    height: 20%;
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 }
 
 .each-fade .image-container {
