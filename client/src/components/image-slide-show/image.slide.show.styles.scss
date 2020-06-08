@@ -57,9 +57,16 @@
 }
 
 .slideshow-image {
-  width: 20%;
-  height: 95%;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 5px;
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    width: auto;
+    height: auto;
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 }
