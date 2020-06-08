@@ -5,19 +5,29 @@ import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 import { withRouter } from 'react-router-dom';
 
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css';
+import SimpleImageSlider from "react-simple-image-slider";
 
-import './item-detail.styles.scss'
 
 class ItemDetail extends React.Component {
 
     render() {
         const { item } = this.props.location.state;
 
+        const images1 = [
+            { url: "images/1.jpg" },
+            { url: "images/2.jpg" },
+            { url: "images/3.jpg" },
+            { url: "images/4.jpg" },
+            { url: "images/5.jpg" },
+            { url: "images/6.jpg" },
+            { url: "images/7.jpg" },
+        ];
+
+        const img = [];
+
         let images = [];
         images = item.additionalImages ? images.concat(item.imageUrl).concat(item.additionalImages) : images.concat(item.imageUrl);
-
+        images.map(image => img.push({url: image}))
         return (
             <div>
                 <div className="row">
@@ -27,10 +37,12 @@ class ItemDetail extends React.Component {
                 </div>
                 <div className="row">
                     <div>
-                        <div className="slider-width">
-                            <AwesomeSlider bullets={false}>
-                                {images.map(image => <div key={image} data-src={image}></div>)}
-                            </AwesomeSlider>
+                        <div>
+                            <SimpleImageSlider
+                                width={350}
+                                height={450}
+                                images={img}
+                            />
                         </div>
                     </div>
                 </div>
