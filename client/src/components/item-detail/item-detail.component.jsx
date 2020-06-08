@@ -6,12 +6,35 @@ import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 import { withRouter } from 'react-router-dom';
 import CustomButton from '../custom-button/custom-button.component';
+
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+
+import './item-detail.styles.scss'
+
 class ItemDetail extends React.Component {
 
     render() {
         const { item } = this.props.location.state;
 
-        const images = [];
+        const items = [
+            { id: 1, title: 'item #1' },
+            { id: 2, title: 'item #2' },
+            { id: 3, title: 'item #3' },
+            { id: 4, title: 'item #4' },
+            { id: 5, title: 'item #5' }
+        ]
+
+
+
+        const slider = (
+            <AwesomeSlider>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </AwesomeSlider>
+        );
 
         return (
             // <div>
@@ -52,18 +75,15 @@ class ItemDetail extends React.Component {
             //         </div>
             //     </div>
             // </div >
-            <CollectionItemContainer>
-                <BackgroundImage className='image' images={item.additionalImages ? images.concat(item.imageUrl).concat(item.additionalImages) : images.concat(item.imageUrl)} />
-                <CollectionFooterContainer>
-                    <NameContainer>{item.name}</NameContainer>
-                    <PriceContainer>{item.price} ron</PriceContainer>
-                </CollectionFooterContainer>
-                <AddButton onClick={() => addItem(item)} inverted>
-                    Adaugă în coș
-                </AddButton>
-                <DescriptionContainer>{item.description}</DescriptionContainer>
-
-            </CollectionItemContainer>
+            <div className="slider-width">
+                <AwesomeSlider>
+                    {item.additionalImages.map(image => <div data-src={image}></div>)}
+                {/* <div data-src="https://firebasestorage.googleapis.com/v0/b/crwn-db-23683.appspot.com/o/1.PNG?alt=media&token=f63aee5e-7549-4888-bef8-0537e03a6e5e" ></div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div> */}
+            </AwesomeSlider>
+            </div>
         );
 
     }
