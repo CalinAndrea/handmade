@@ -7,8 +7,8 @@ export const CollectionPageContainer = styled.div`
 `;
 
 export const CollectionTitle = styled.h2`
-  font-size: 38px;
-  margin: 0 auto 30px;
+  font-size: 30px;
+  margin: 0 auto 20px;
 `;
 
 export const CollectionItemsContainer = styled.div`
@@ -22,4 +22,10 @@ export const CollectionItemsContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
   }
+`;
+
+export const NavigationLinkContainer = styled.a`
+  align: left;
+  color: #0000EE;
+  margin: 0 auto 30px;
 `;

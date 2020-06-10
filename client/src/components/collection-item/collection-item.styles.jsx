@@ -70,3 +70,7 @@ export const PriceContainer = styled.span`
   width: 20%;
   text-align: right;
 `;
+
+export const NavigationLinkContainer = styled.a`
+  color: #0000EE
+`;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddButton, DescriptionContainer, CollectionItemContainer, BackgroundImage, NameContainer, PriceContainer, CollectionFooterContainer } from './item-detail.styles'
+import { AddButton, DescriptionContainer, NavigationLinkContainer } from './item-detail.styles'
 import { connect } from 'react-redux';
 
 import { addItem } from '../../redux/cart/cart.actions';
@@ -11,25 +11,16 @@ import SimpleImageSlider from "react-simple-image-slider";
 class ItemDetail extends React.Component {
 
     render() {
-        const { item } = this.props.location.state;
-
-        const images1 = [
-            { url: "images/1.jpg" },
-            { url: "images/2.jpg" },
-            { url: "images/3.jpg" },
-            { url: "images/4.jpg" },
-            { url: "images/5.jpg" },
-            { url: "images/6.jpg" },
-            { url: "images/7.jpg" },
-        ];
-
+        const { item, title } = this.props.location.state;
         const img = [];
 
         let images = [];
         images = item.additionalImages ? images.concat(item.imageUrl).concat(item.additionalImages) : images.concat(item.imageUrl);
-        images.map(image => img.push({url: image}))
+        images.map(image => img.push({ url: image }))
         return (
             <div>
+                <NavigationLinkContainer href={`/shop/`}>Magazin / </NavigationLinkContainer>
+                <NavigationLinkContainer href={`/shop/${title.toLowerCase()}`}>{title}</NavigationLinkContainer>
                 <div className="row">
                     <h1>
                         {item.name}
@@ -42,6 +33,7 @@ class ItemDetail extends React.Component {
                                 width={350}
                                 height={450}
                                 images={img}
+                                slideDuration={0.3}
                             />
                         </div>
                     </div>

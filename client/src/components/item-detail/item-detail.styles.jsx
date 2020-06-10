@@ -69,3 +69,7 @@ export const AddButton = styled(CustomButton)`
     padding: 0 10px;
   }
 `;
+
+export const NavigationLinkContainer = styled.a`
+  color: #0000EE
+`;
