@@ -40,7 +40,7 @@ class ItemDetail extends React.Component {
                 </div>
                 <div className="row">
                     <div>
-                        <span>Preț: {item.price} ron</span>
+                        <span><b>Preț: {item.price} ron</b></span>
                     </div>
                 </div>
                 <div className="row">
@@ -48,7 +48,6 @@ class ItemDetail extends React.Component {
                         <DescriptionContainer>{item.description}</DescriptionContainer>
                     </div>
                 </div>
-
                 <div className="row">
                     <div>
                         <AddButton onClick={() => this.props.addItem(item)} inverted>

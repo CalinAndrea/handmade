@@ -5,7 +5,7 @@ export const CollectionItemContainer = styled.div`
   width: 80%;
   display: flex;
   flex-direction: row;
-  height: 50%;
+  height: 70%;
   position: relative;
   &:hover {
     .image {
@@ -31,7 +31,7 @@ export const CollectionItemContainer = styled.div`
 
 export const CollectionFooterContainer = styled.div`
   width: 100%;
-  height: 20%;
+  height: 40%;
   display: flex;
   justify-content: space-between;
   font-size: 18px;
@@ -40,7 +40,7 @@ export const CollectionFooterContainer = styled.div`
 export const NameContainer = styled.span`
 height: 10%;
 weight: 10%;
-  margin-bottom: 15px;
+margin-bottom: 15px;
 `;
 
 export const PriceContainer = styled.span`
@@ -52,17 +52,20 @@ display: flex;
 `;
 
 export const DescriptionContainer = styled.span`
-  weight: 50%;
-  height: 50%;
-  float: left;
+  width: 50%;
+  height: 30%;
+  text-align: left;
+  display: flex;
 `;
 
 export const AddButton = styled(CustomButton)`
-  float: left;
   width: 10%;
   opacity: 0.7;
+  position: absolute;
+  height: 5%;
+  float: left;
   @media screen and (max-width: 800px) {
-    width: 40%;
+    width: 30%;
     display: block;
     opacity: 0.9;
     min-width: unset;
