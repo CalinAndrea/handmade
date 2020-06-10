@@ -56,6 +56,10 @@ export const DescriptionContainer = styled.span`
   height: 30%;
   text-align: left;
   display: flex;
+
+  @media screen and (max-width: 800px) {
+    width: auto;
+  }
 `;
 
 export const AddButton = styled(CustomButton)`
