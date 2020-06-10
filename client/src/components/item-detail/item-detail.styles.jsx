@@ -66,7 +66,6 @@ export const AddButton = styled(CustomButton)`
   width: 10%;
   opacity: 0.7;
   position: absolute;
-  height: 5%;
   float: left;
   @media screen and (max-width: 800px) {
     width: 30%;
@@ -74,6 +73,8 @@ export const AddButton = styled(CustomButton)`
     opacity: 0.9;
     min-width: unset;
     padding: 0 10px;
+    padding-bottom: 10px;
+
   }
 `;
 
