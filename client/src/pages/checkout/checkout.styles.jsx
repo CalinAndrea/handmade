@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import FormInput from '../../components/form-input/form-input.component';
 
 export const CheckoutPageContainer = styled.div`
   width: 55%;

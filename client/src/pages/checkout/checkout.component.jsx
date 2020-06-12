@@ -36,6 +36,8 @@ const CheckoutPage = ({ cartItems, total }) => {
   const [orderProperties, setOrderProperties] = useState({ displayName: '', phoneNumber: '', region: '', city: '', completeAddress: '', otherInstructions: '' });
   const { displayName, phoneNumber, region, city, completeAddress, otherInstructions } = orderProperties;
 
+  const [paymentMethod, setPaymentMethod] = useState('bankTransfer');
+
   const handleSubmit = async event => {
     event.preventDefault();
 
@@ -43,6 +45,10 @@ const CheckoutPage = ({ cartItems, total }) => {
     // signUpStart({ displayName, email, password })
 
   };
+
+  const handleRadioChange = event => {
+    setPaymentMethod(event.target.value)
+  }
 
   const handleChange = event => {
     const { value, name } = event.target;
@@ -152,29 +158,58 @@ const CheckoutPage = ({ cartItems, total }) => {
           <AccordionItem>
             <AccordionItemHeading>
               <AccordionItemButton>
-                Metoda de livrare
-                    </AccordionItemButton>
+                Metoda de livrare și plată
+              </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <p>
-                In ad velit in ex nostrud dolore cupidatat consectetur
-                ea in ut nostrud velit in irure cillum tempor laboris
-                sed adipisicing eu esse duis nulla non.
-                    </p>
-            </AccordionItemPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionItemHeading>
-              <AccordionItemButton>
-                Metoda de plata
-                    </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel>
-              <p>
-                In ad velit in ex nostrud dolore cupidatat consectetur
-                ea in ut nostrud velit in irure cillum tempor laboris
-                sed adipisicing eu esse duis nulla non.
-                    </p>
+
+              <div className='group-checkout'>
+                <div>
+                  <input
+                    type='radio'
+                    id='paymentMethod1'
+                    value='bankTransfer'
+                    checked={paymentMethod === 'bankTransfer'}
+                    onChange={handleRadioChange}
+                  />
+                  <label for="paymentMethod1">Transfer Bancar - (0 cost transport)</label>
+                </div>
+
+                <div>
+                  <input
+                    type='radio'
+                    id='paymentMethod2'
+                    value='ramburs'
+                    checked={paymentMethod === 'ramburs'}
+                    onChange={handleRadioChange}
+                  />
+                  <label for="paymentMethod2">Poșta română - Ramburs (15 ron transport)</label>
+                </div>
+
+                <div>
+                  <input
+                    type='radio'
+                    id='paymentMethod3'
+                    value='pickup'
+                    checked={paymentMethod === 'pickup'}
+                    onChange={handleRadioChange}
+                    label='Ridicare personala in Medias ( 0 cost transport)'
+                  />
+                  <label for="paymentMethod3">Ridicare personala in Medias ( 0 cost transport)</label>
+                </div>
+                <div>
+                  <input
+                    type='radio'
+                    id='paymentMethod4'
+                    value='creditCard'
+                    checked={false}
+                    disabled
+                    onChange={handleRadioChange}
+                    label='*(in curand) Plata cu cardul - (0 cost transport)'
+                  />
+                  <label for="paymentMethod4">*(in curand) Plata cu cardul - (0 cost transport)</label>
+                </div>
+              </div>
             </AccordionItemPanel>
           </AccordionItem>
         </Accordion>
