@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -15,7 +15,7 @@ import {
   CheckoutHeaderContainer,
   HeaderBlockContainer,
   TotalContainer,
-  WarningContainer
+  AddButton
 } from './checkout.styles';
 
 import {
@@ -28,25 +28,19 @@ import {
 
 import './accordion.styles.scss';
 
+import { sendOrderStart } from '../../redux/shop/shop.actions'
+
 import CustomButton from '../../components/custom-button/custom-button.component';
 import FormInput from '../../components/form-input/form-input.component';
 import { CheckoutItemContainer } from '../../components/checkout-item/checkout-item.styles'
 
-const CheckoutPage = ({ cartItems, total }) => {
+const CheckoutPage = ({ sendOrderStart, cartItems, total }) => {
 
   const [orderProperties, setOrderProperties] = useState({ displayName: '', phoneNumber: '', region: '', city: '', completeAddress: '', otherInstructions: '' });
   const { displayName, phoneNumber, region, city, completeAddress, otherInstructions } = orderProperties;
 
   const [paymentMethod, setPaymentMethod] = useState('bankTransfer');
   const [totalPriceWithTransport, setTotalPriceWithTransport] = useState(total);
-
-  const handleSubmit = async event => {
-    event.preventDefault();
-
-
-    // signUpStart({ displayName, email, password })
-
-  };
 
   const handleRadioChange = event => {
     setPaymentMethod(event.target.value);
@@ -55,6 +49,16 @@ const CheckoutPage = ({ cartItems, total }) => {
     } else {
       setTotalPriceWithTransport(total)
     }
+  }
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+
+
+  let respone = await sendOrderStart(orderProperties);
+
+  console.log(respone)
+
   }
 
   const handleChange = event => {
@@ -103,7 +107,7 @@ const CheckoutPage = ({ cartItems, total }) => {
                 <AccordionItemHeading>
                   <AccordionItemButton>
                     Adresa de livrare
-          </AccordionItemButton>
+                  </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   <FormInput
@@ -181,7 +185,7 @@ const CheckoutPage = ({ cartItems, total }) => {
                         checked={paymentMethod === 'bankTransfer'}
                         onChange={handleRadioChange}
                       />
-                      <label for="paymentMethod1">Transfer Bancar - (0 cost transport)</label>
+                      <label htmlFor="paymentMethod1">Transfer Bancar - (0 cost transport)</label>
                     </div>
 
                     <div>
@@ -192,7 +196,7 @@ const CheckoutPage = ({ cartItems, total }) => {
                         checked={paymentMethod === 'ramburs'}
                         onChange={handleRadioChange}
                       />
-                      <label for="paymentMethod2">Poșta română - Ramburs (15 ron transport)</label>
+                      <label htmlFor="paymentMethod2">Poșta română - Ramburs (15 ron transport)</label>
                     </div>
 
                     <div>
@@ -204,7 +208,7 @@ const CheckoutPage = ({ cartItems, total }) => {
                         onChange={handleRadioChange}
                         label='Ridicare personala in Medias ( 0 cost transport)'
                       />
-                      <label for="paymentMethod3">Ridicare personala in Medias ( 0 cost transport)</label>
+                      <label htmlFor="paymentMethod3">Ridicare personala in Medias ( 0 cost transport)</label>
                     </div>
                     <div>
                       <input
@@ -216,24 +220,36 @@ const CheckoutPage = ({ cartItems, total }) => {
                         onChange={handleRadioChange}
                         label='*(in curand) Plata cu cardul - (0 cost transport)'
                       />
-                      <label for="paymentMethod4">*(in curand) Plata cu cardul - (0 cost transport)</label>
+                      <label htmlFor="paymentMethod4">*(in curand) Plata cu cardul - (0 cost transport)</label>
                     </div>
                   </div>
                 </AccordionItemPanel>
               </AccordionItem>
             </Accordion>
+            <TotalContainer>Preț total: {totalPriceWithTransport} RON</TotalContainer>
+            <TotalContainer>
+              {/* onClick={() => sendOrderSuccess(orderProperties)} */}
+              <AddButton type='submit' inverted>
+                Trimite comanda
+            </AddButton>
+            </TotalContainer>
           </form>
         </CheckoutItemContainer>
-        <TotalContainer>Preț total: {totalPriceWithTransport} RON</TotalContainer>
+
+
       </CheckoutPageContainer>
 
     </div>
   )
 }
 
+const mapDispatchToProps = dispatch => ({
+  sendOrderStart: orderProperties => dispatch(sendOrderStart(orderProperties))
+})
+
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal
 });
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);

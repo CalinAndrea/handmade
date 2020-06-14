@@ -3,7 +3,7 @@ import ShopActionTypes from "./shop.types";
 const INITIAL_STATE = {
   collections: null,
   isFetching: false,
-  errorMessage: undefined
+  errorMessage: undefined,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -11,18 +11,32 @@ const shopReducer = (state = INITIAL_STATE, action) => {
     case ShopActionTypes.FETCH_COLLECTIONS_START:
       return {
         ...state,
-        isFetching: true
-      }
+        isFetching: true,
+      };
     case ShopActionTypes.FETCH_COLLECTIONS_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        collections: action.payload
-      }  
+        collections: action.payload,
+      };
     case ShopActionTypes.FETCH_COLLECTIONS_FAILURE:
       return {
         ...state,
         isFetching: false,
+        errorMessage: action.payload,
+      };
+    case ShopActionTypes.SEND_ORDER_START:
+      return {
+        ...state,
+      };
+    case ShopActionTypes.SEND_ORDER_SUCCESS:
+      return {
+        ...state,
+        orderDetails: action.payload,
+      };
+    case ShopActionTypes.SEND_ORDER_FAILURE:
+      return {
+        ...state,
         errorMessage: action.payload,
       };
     default:

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import FormInput from '../../components/form-input/form-input.component';
+import CustomButton from '../../components/custom-button/custom-button.component';
+
 
 export const CheckoutPageContainer = styled.div`
   width: 55%;
@@ -40,7 +41,7 @@ export const HeaderBlockContainer = styled.div`
 `;
 
 export const TotalContainer = styled.div`
-  margin-top: 30px;
+  margin-top: 15px;
   margin-left: auto;
   font-size: 36px;
 `;
@@ -63,4 +64,14 @@ export const CheckoutItemContainer = styled.div`
   @media screen and (max-width: 800px) {
     font-size: 18px;
   }
+`;
+
+export const AddButton = styled(CustomButton)`
+opacity: 0.7;
+@media screen and (max-width: 800px) {
+  display: block;
+  opacity: 0.9;
+  min-width: unset;
+  padding: 0 10px;
+}
 `;
