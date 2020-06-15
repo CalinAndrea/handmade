@@ -37,9 +37,8 @@ export function* fetchCollectionsStart() {
 export function* sendOrderStartAsynch(orderProperties) {
   try {
     const { payload } = orderProperties;
-    const result = yield call(addCollectionAndDocuments("orders", [payload]));
-
-    yield put(sendOrderSuccess(result));
+    const response = yield call(addCollectionAndDocuments, "orders", [payload]);
+    yield put(sendOrderSuccess(response));
   } catch (error) {
     yield put(sendOrderFailure(error.message));
   }

@@ -10,6 +10,8 @@ import {
   selectCartTotal
 } from '../../redux/cart/cart.selectors';
 
+import { selectOrderDetails }
+  from '../../redux/shop/shop.selectors';
 import {
   CheckoutPageContainer,
   CheckoutHeaderContainer,
@@ -34,7 +36,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import FormInput from '../../components/form-input/form-input.component';
 import { CheckoutItemContainer } from '../../components/checkout-item/checkout-item.styles'
 
-const CheckoutPage = ({ sendOrderStart, cartItems, total }) => {
+const CheckoutPage = ({ sendOrderStart, cartItems, total, orderDetails }) => {
 
   const [orderProperties, setOrderProperties] = useState({ displayName: '', phoneNumber: '', region: '', city: '', completeAddress: '', otherInstructions: '' });
   const { displayName, phoneNumber, region, city, completeAddress, otherInstructions } = orderProperties;
@@ -51,13 +53,11 @@ const CheckoutPage = ({ sendOrderStart, cartItems, total }) => {
     }
   }
 
-  const handleSubmit = async event => {
+
+  const handleSubmit = event => {
     event.preventDefault();
 
-
-  let respone = await sendOrderStart(orderProperties);
-
-  console.log(respone)
+    sendOrderStart(orderProperties);
 
   }
 
@@ -227,6 +227,7 @@ const CheckoutPage = ({ sendOrderStart, cartItems, total }) => {
               </AccordionItem>
             </Accordion>
             <TotalContainer>Preț total: {totalPriceWithTransport} RON</TotalContainer>
+            <TotalContainer>Error message: {orderDetails}</TotalContainer>
             <TotalContainer>
               {/* onClick={() => sendOrderSuccess(orderProperties)} */}
               <AddButton type='submit' inverted>
@@ -247,9 +248,10 @@ const mapDispatchToProps = dispatch => ({
   sendOrderStart: orderProperties => dispatch(sendOrderStart(orderProperties))
 })
 
-const mapStateToProps = createStructuredSelector({
+const mapStateToProps = (state) => createStructuredSelector({
   cartItems: selectCartItems,
-  total: selectCartTotal
+  total: selectCartTotal,
+  orderDetails: selectOrderDetails,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);
