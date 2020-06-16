@@ -28,6 +28,7 @@
     "react-image-gallery": "^1.0.7",
     "react-simple-image-slider": "^1.0.3",
     "react-slideshow-image": "^1.5.3",
+    "react-toast-notifications": "^2.4.0",
     "stripe": "6.28.0"
   },
   "devDependencies": {
