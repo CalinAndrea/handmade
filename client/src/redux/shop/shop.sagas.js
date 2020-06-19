@@ -11,6 +11,8 @@ import {
   sendOrderSuccess,
 } from "./shop.actions";
 
+import emailjs from "emailjs-com";
+
 import ShopActionTypes from "./shop.types";
 
 export function* fetchCollectionsAsync() {
@@ -38,6 +40,17 @@ export function* sendOrderStartAsynch(orderProperties) {
   try {
     const { payload } = orderProperties;
     const response = yield call(addCollectionAndDocuments, "orders", [payload]);
+
+    //TODO send email
+    var template_params = {
+      reply_to: "andrea.n.calin@gmail.com",
+      message_html: "message_html_value",
+    };
+
+    var service_id = "default_service";
+    var template_id = "template_HZKzFZGO";
+    //  emailjs.send(service_id, template_id, template_params, "user_4vsHRYY28eAGUZDDO6fdh");
+
     yield put(sendOrderSuccess(response));
   } catch (error) {
     yield put(sendOrderFailure(error.message));
