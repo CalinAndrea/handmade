@@ -14,7 +14,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { selectCartTotal } from '../../redux/cart/cart.selectors';
 
-import { selectOrderDetails }
+import { selectOrderErrorMessage }
     from '../../redux/shop/shop.selectors';
 
 import { sendOrderStart } from '../../redux/shop/shop.actions'
@@ -24,7 +24,7 @@ import FormInput from '../form-input/form-input.component';
 import { AddButton, TotalContainer, WarningContainer } from './order-form.styles'
 import './accordion.styles.scss';
 
-const OrderForm = ({ sendOrderStart, total, orderDetails }) => {
+const OrderForm = ({ sendOrderStart, total, orderErrorMessage }) => {
 
     const [orderProperties, setOrderProperties] = useState({ displayName: '', phoneNumber: '', region: '', city: '', completeAddress: '', otherInstructions: '' });
     const { displayName, phoneNumber, region, city, completeAddress, otherInstructions } = orderProperties;
@@ -186,7 +186,8 @@ const OrderForm = ({ sendOrderStart, total, orderDetails }) => {
                     </AccordionItem>
                 </Accordion>
                 <TotalContainer>Preț total: {totalPriceWithTransport} RON</TotalContainer>
-                <WarningContainer>{orderDetails === 'Missing or insufficient permissions.' ? "Vă rugăm să vă autentificați pentru a plasa comanda." : ''}</WarningContainer>
+                <WarningContainer>{orderErrorMessage === 'Missing or insufficient permissions.' ? "Vă rugăm să vă autentificați pentru a plasa comanda." : orderErrorMessage ? 'Eroare tehnică. Vă rugam să ne contactati, sau încercați mai târziu.' : ''}</WarningContainer>
+                <WarningContainer>{orderErrorMessage === 'Missing or insufficient permissions.' ? "Vă rugăm să vă autentificați pentru a plasa comanda." : orderErrorMessage ? 'Eroare tehnică. Vă rugam să ne contactati, sau încercați mai târziu.' : ''}</WarningContainer>
                 <TotalContainer>
                     <AddButton type='submit' inverted>
                         Trimite comanda
@@ -203,7 +204,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = () => createStructuredSelector({
     total: selectCartTotal,
-    orderDetails: selectOrderDetails,
+    orderErrorMessage: selectOrderErrorMessage,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderForm);

@@ -11,6 +11,8 @@ import {
   sendOrderSuccess,
 } from "./shop.actions";
 
+import { clearCart } from "../cart/cart.actions";
+
 import emailjs from "emailjs-com";
 
 import ShopActionTypes from "./shop.types";
@@ -57,10 +59,22 @@ export function* sendOrderStartAsynch(orderProperties) {
   }
 }
 
+export function* clearCartOnOrderSent() {
+  yield put(clearCart());
+}
+
+export function* onSendOrderSuccess() {
+  yield takeLatest(ShopActionTypes.SEND_ORDER_SUCCESS, clearCartOnOrderSent);
+}
+
 export function* sendOrderStart() {
   yield takeLatest(ShopActionTypes.SEND_ORDER_START, sendOrderStartAsynch);
 }
 
 export function* shopSagas() {
-  yield all([call(fetchCollectionsStart), call(sendOrderStart)]);
+  yield all([
+    call(fetchCollectionsStart),
+    call(sendOrderStart),
+    call(onSendOrderSuccess),
+  ]);
 }

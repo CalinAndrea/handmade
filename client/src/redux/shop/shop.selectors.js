@@ -7,9 +7,14 @@ export const selectCollections = createSelector(
   (shop) => shop.collections
 );
 
-export const selectOrderDetails = createSelector(
+export const selectOrderErrorMessage = createSelector(
   [selectShop],
   (shop) => shop.errorMessage
+);
+
+export const selectIsOrderSent = createSelector(
+  [selectShop],
+  (shop) => shop.orderSent
 );
 
 export const selectCollectionsForPreview = createSelector(

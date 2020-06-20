@@ -65,7 +65,6 @@ export const DescriptionContainer = styled.span`
 export const AddButton = styled(CustomButton)`
 width: 40%;
 opacity: 0.7;
-position: absolute;
 @media screen and (max-width: 800px) {
   display: block;
   opacity: 0.9;

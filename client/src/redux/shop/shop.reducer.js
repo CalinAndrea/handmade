@@ -1,5 +1,6 @@
 import ShopActionTypes from "./shop.types";
 import UserActionTypes from "../user/user.types";
+import CartActionTypes from "../cart/cart.types";
 
 const INITIAL_STATE = {
   collections: null,
@@ -31,12 +32,14 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         errorMessage: null,
+        orderSent: false,
       };
     case ShopActionTypes.SEND_ORDER_SUCCESS:
       return {
         ...state,
         orderDetails: action.payload,
         errorMessage: null,
+        orderSent: true,
       };
     case ShopActionTypes.SEND_ORDER_FAILURE:
       return {
@@ -46,6 +49,13 @@ const shopReducer = (state = INITIAL_STATE, action) => {
     case UserActionTypes.SIGN_IN_SUCCESS:
       return {
         ...state,
+        errorMessage: null,
+        orderSent: false,
+      };
+    case CartActionTypes.ADD_ITEM:
+      return {
+        ...state,
+        orderSent: false,
         errorMessage: null,
       };
     default:
