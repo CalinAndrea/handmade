@@ -10,7 +10,7 @@ module.exports = {
     main: "./src"
   },
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "client/public"),
     filename: "[name].bundle.js",
   },
   module: {
@@ -21,7 +21,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({template: "./src/index.html"}),
+    new HtmlWebpackPlugin({template: "./client/src/index.html"}),
     new MiniCssExtractPlugin({filename: "[name].css"})
   ]
 }
