@@ -1,38 +1,39 @@
 const INITIAL_STATE = {
   sections: [
     {
-      title: 'Pălării',
-      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+      title: "Pălării",
+      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
       id: 1,
-      linkUrl: 'shop/hats'
+      linkUrl: "shop/hats",
     },
     {
-      title: 'Jachete',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+      title: "Jachete",
+      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
       id: 2,
-      linkUrl: 'shop/jackets'
+      linkUrl: "shop/jackets",
     },
     {
-      title: 'Pantofi',
-      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+      title: "Pantofi",
+      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
       id: 3,
-      linkUrl: 'shop/sneakers'
+      linkUrl: "shop/sneakers",
     },
     {
-      title: 'Haine Femei',
-      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-      size: 'large',
+      title: "Haine Femei",
+      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+      size: "large",
       id: 4,
-      linkUrl: 'shop/womens'
+      linkUrl: "shop/womens",
     },
     {
-      title: 'Produse Handmade',
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/crwn-db-23683.appspot.com/o/Handmade.jpg?alt=media&token=3e952433-a370-469d-b806-6a71d885fc0f',
-      size: 'large',
+      title: "Produse Handmade",
+      imageUrl:
+        "https://handmade1234.s3.eu-central-1.amazonaws.com/Handmade.jpg",
+      size: "large",
       id: 5,
-      linkUrl: 'shop/handmade'
-    }
-  ]
+      linkUrl: "shop/handmade",
+    },
+  ],
 };
 
 const directoryReducer = (state = INITIAL_STATE, action) => {
