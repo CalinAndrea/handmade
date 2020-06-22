@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
-import Img from 'react-cool-img';
-
 
 export const CollectionItemContainer = styled.div`
   width: 22vw;
@@ -46,7 +44,7 @@ export const AddButton = styled(CustomButton)`
   }
 `;
 
-export const BackgroundImage = styled(Img)`
+export const BackgroundImage = styled.div`
   width: 100%;
   height: 95%;
   background-size: cover;
