@@ -12,6 +12,9 @@ import {
   PriceContainer
 } from './collection-item.styles';
 
+import Img from 'react-cool-img'
+
+
 const CollectionItem = ({ item, history, title }) => {
   const { name, price, imageUrl } = item;
 
@@ -23,7 +26,12 @@ const CollectionItem = ({ item, history, title }) => {
         title: title
       }
     })}>
-      <BackgroundImage className='image' imageUrl={imageUrl} />
+      {/* <Img className
+          src={imageUrl}
+          cache // Default is true, just for demo
+          alt="item"
+        /> */}
+      <BackgroundImage cache className='image' imageUrl={imageUrl} />
       <CollectionFooterContainer>
         <NameContainer>{name}</NameContainer>
         <PriceContainer>{price} ron</PriceContainer>

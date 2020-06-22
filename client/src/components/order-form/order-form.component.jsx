@@ -12,10 +12,12 @@ import { useToasts } from 'react-toast-notifications'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectCartTotal } from '../../redux/cart/cart.selectors';
+import { selectCartTotal, selectCartItems } from '../../redux/cart/cart.selectors';
 
 import { selectOrderErrorMessage }
     from '../../redux/shop/shop.selectors';
+
+import { selectCurrentUser } from '../../redux/user/user.selectors'
 
 import { sendOrderStart } from '../../redux/shop/shop.actions'
 
@@ -24,9 +26,9 @@ import FormInput from '../form-input/form-input.component';
 import { AddButton, TotalContainer, WarningContainer } from './order-form.styles'
 import './accordion.styles.scss';
 
-const OrderForm = ({ sendOrderStart, total, orderErrorMessage }) => {
+const OrderForm = ({ cartItems, sendOrderStart, total, orderErrorMessage, selectedUser }) => {
 
-    const [orderProperties, setOrderProperties] = useState({ displayName: '', phoneNumber: '', region: '', city: '', completeAddress: '', otherInstructions: '' });
+    const [orderProperties, setOrderProperties] = useState({ displayName: '', phoneNumber: '', region: '', city: '', completeAddress: '', otherInstructions: '', cartItems, selectedUser });
     const { displayName, phoneNumber, region, city, completeAddress, otherInstructions } = orderProperties;
 
     const [paymentMethod, setPaymentMethod] = useState();
@@ -54,6 +56,9 @@ const OrderForm = ({ sendOrderStart, total, orderErrorMessage }) => {
             addToast("Vă rugăm selectați metoda de livrare și plată!", { appearance: 'error' })
             return;
         }
+        orderProperties.date = new Date();
+        orderProperties.paymentMethod = paymentMethod;
+
         sendOrderStart(orderProperties);
 
     }
@@ -205,6 +210,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = () => createStructuredSelector({
     total: selectCartTotal,
     orderErrorMessage: selectOrderErrorMessage,
+    cartItems: selectCartItems,
+    selectedUser: selectCurrentUser
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderForm);

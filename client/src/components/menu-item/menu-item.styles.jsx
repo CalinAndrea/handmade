@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Img from 'react-cool-img';
 
 export const MenuItemContainer = styled.div`
 	height: ${({ size }) => (size ? '380px' : '240px')};
@@ -32,7 +33,7 @@ export const MenuItemContainer = styled.div`
   }
 `;
 
-export const BackgroundImageContainer = styled.div`
+export const BackgroundImageContainer = styled(Img)`
   width: 100%;
   height: 100%;
   background-size: cover;

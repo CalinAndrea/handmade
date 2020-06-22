@@ -1913,6 +1913,11 @@ react-awesome-slider@^4.1.0:
   dependencies:
     web-animation-club "^0.6.0"
 
+react-cool-img@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-cool-img/-/react-cool-img-1.2.0.tgz#3893c3cf4c7b844fd4f86a4e5037d8968f0d276d"
+  integrity sha512-hPkTKAv0ua/Ds6z+0eON22JJy+ciPELnqSj67McWc+bFa2WH/EqjneAJTtk9IZKZmygecnbtd/eNWh9Pw8MKhw==
+
 react-elastic-carousel@^0.6.4:
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/react-elastic-carousel/-/react-elastic-carousel-0.6.4.tgz#2856235b7427a4dc93a657d77c32b20a4284fbe4"

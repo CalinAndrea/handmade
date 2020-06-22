@@ -13,12 +13,18 @@ import {
   RemoveButtonContainer
 } from './checkout-item.styles';
 
+import Img from 'react-cool-img'
+
 const CheckoutItem = ({ cartItem, clearItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={imageUrl} alt='item' />
+        <Img
+          src={imageUrl}
+          cache // Default is true, just for demo
+          alt="item"
+        />
       </ImageContainer>
       <TextContainer>{name}</TextContainer>
       <QuantityContainer>
