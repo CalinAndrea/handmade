@@ -4,7 +4,7 @@
   "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "firebase": "6.0.2",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.15",
